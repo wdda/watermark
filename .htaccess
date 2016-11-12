@@ -1,0 +1,15 @@
+<IfModule mod_access.c>
+Order allow,deny
+Allow from all
+</IfModule>
+
+DirectoryIndex index.php 
+ 
+<FilesMatch "\.(gif|jpg|jpeg|png|JPG)$"> 
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} -f
+# Внимание! Путь к файлу watermark.php, вставте свой вместо папки watermark.
+# Поменяйте параметр pass 123123 на свой, тоже самое надо сделать в файле watermark.php
+RewriteRule \.(gif|jpeg|jpg|png|JPG)$ /watermark/watermark.php?pass=123123 [T=application/x-httpd-php,L,QSA] 
+</FilesMatch>
+
