@@ -13,6 +13,9 @@ if(!empty($_GET['pass'])){
 	
 }else{die;}
 
+$dir = 'cache';
+if(!is_dir($dir)) mkdir($dir);
+
 //Путь до файла с оригинальным изображением
 $path = $_SERVER['DOCUMENT_ROOT'] . $_SERVER['REQUEST_URI'];
 $nameImage = end(explode('/', $_SERVER['REQUEST_URI'])); //Имя изображения
